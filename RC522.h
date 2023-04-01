@@ -10,15 +10,23 @@
 #define	XC_HEADER_TEMPLATE_H
 #define FIFO_SIZE 64
 
+struct FIFO{
+    uint16_t size;
+    uint8_t content[64];
+};
+
 void initialize_RC522();
-void turnOnAntenna();
+void turnOnAntenna();   //perhaps deprecated
+void transceive();
 uint8_t getFifoSize();
-void getFifoContent(uint8_t * receving_buffer);
-void writeByteToFifo(uint8_t * byte_to_write);
+//void Read_FIFO(uint8_t * receving_buffer);
+struct FIFO Read_FIFO();
+void Write_FIFO(uint8_t * buffer_to_write, uint16_t number_of_bytes);
+void Write_FIFO_Append_CRC();
 void clearFifoBuffer();
 uint8_t * getModemStatus();
 uint8_t getStatusReg();
-void toggleSlaveSelect();
+void toggleSlaveSelect();   //Move this function to SPI library
 
 
 

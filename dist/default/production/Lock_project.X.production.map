@@ -83,14 +83,14 @@ Default Scalar Model: Small
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x430           0x648  (1608)
-.const                       0x630                0x20            0x30  (48)
-.text                        0x650               0xdf6          0x14f1  (5361)
-.dinit                      0x1446                0x5c            0x8a  (138)
-.text                       0x14a2               0x146           0x1e9  (489)
-.init.delay32               0x15e8                0x1c            0x2a  (42)
-.text                       0x1604                0x2e            0x45  (69)
+.const                       0x630                0x2a            0x3f  (63)
+.text                        0x65a               0xe1a          0x1527  (5415)
+.dinit                      0x1474                0x5c            0x8a  (138)
+.text                       0x14d0               0x144           0x1e6  (486)
+.init.delay32               0x1614                0x1c            0x2a  (42)
+.text                       0x1630                0x2e            0x45  (69)
 
-                 Total "program" memory used (bytes):         0x1e4b  (7755) 5%
+                 Total "program" memory used (bytes):         0x1e8d  (7821) 5%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
@@ -100,11 +100,11 @@ section                    address      alignment gaps    total length  (dec)
 .nbss                        0x800                   0            0x1e  (30)
 .ndata                       0x81e                   0             0x2  (2)
 .nbss                        0x820                   0             0x2  (2)
-.bss                         0x822                   0            0x78  (120)
-.data                        0x89a                   0            0x28  (40)
-.bss                         0x8c2                   0            0x44  (68)
+.bss                         0x822                   0            0xb8  (184)
+.data                        0x8da                   0            0x2a  (42)
+.bss                         0x904                   0            0x44  (68)
 
-                 Total "data" memory used (bytes):          0x106  (262) 3%
+                 Total "data" memory used (bytes):          0x148  (328) 4%
 
 
 Dynamic Memory Usage
@@ -112,9 +112,9 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0x906                              0x1efa  (7930)
+stack                        0x948                              0x1eb8  (7864)
 
-                 Maximum dynamic memory (bytes):         0x1efa  (7930)
+                 Maximum dynamic memory (bytes):         0x1eb8  (7864)
 
 Info: Project is using a large data memory model when small data memory model is sufficient.
 
@@ -127,98 +127,102 @@ External Symbols in Data Memory (by address):
                     0x081a                  _UART1_RxDefaultInterruptHandler
                     0x0822                  _dummyReadResponse
                     0x0824                  _write_fifo_response
-                    0x0827                  _read_fifo_response
-                    0x082a                  _bytesInFifoResponse
-                    0x082d                  _modRegInitResponse
-                    0x0830                  _RxModeRegInitResponse
-                    0x0833                  _RxSelRegInitResponse
-                    0x0836                  _RxThresholdRegInitResponse
-                    0x0839                  _activate_receiver_response
-                    0x083c                  _softResetCmd_response
-                    0x083f                  _clearCryptoBitCmd_response
-                    0x0842                  _fifo
-                    0x0882                  _modemStatusResponse
-                    0x0885                  _TxModeRegInitResponse
-                    0x0888                  _TxControlRegResponse
-                    0x088b                  _TxASKRegInitResponse
-                    0x088e                  _TxSelRegInitResponse
-                    0x0891                  _receiverGainRegResponse
-                    0x0894                  _ComIrqRegInitResponse
-                    0x0897                  _getStatusRegCmdResponse
-                    0x089a                  _dummy_read
-                    0x089c                  _read_fifo
-                    0x089e                  _getBytesInFifoCmd
-                    0x08a0                  _getModemStatusCmd
-                    0x08a2                  _getStatusRegCmd
-                    0x08a4                  _clearFifoBufferCmd
-                    0x08a6                  _write_fifo
-                    0x08a8                  _activate_receiver_cmd
-                    0x08aa                  _softResetCmd
-                    0x08ac                  _modRegInit
-                    0x08ae                  _RxModeRegInit
-                    0x08b0                  _RxSelRegInit
-                    0x08b2                  _clearCryptoBitCmd
-                    0x08b4                  _RxThresholdRegInit
-                    0x08b6                  _TxModeRegInit
-                    0x08b8                  _TxControlReg
-                    0x08ba                  _TxASKRegInit
-                    0x08bc                  _TxSelRegInit
-                    0x08be                  _receiverGainReg
-                    0x08c0                  _ComIrqRegInit
+                    0x0864                  _read_fifo_response
+                    0x0867                  _bytesInFifoResponse
+                    0x086a                  _modRegInitResponse
+                    0x086d                  _RxModeRegInitResponse
+                    0x0870                  _RxSelRegInitResponse
+                    0x0873                  _RxThresholdRegInitResponse
+                    0x0876                  _activate_receiver_response
+                    0x0879                  _softResetCmd_response
+                    0x087c                  _clearCryptoBitCmd_response
+                    0x087f                  _fifo
+                    0x08bf                  _modemStatusResponse
+                    0x08c2                  _TxModeRegInitResponse
+                    0x08c5                  _TxControlRegResponse
+                    0x08c8                  _TxASKRegInitResponse
+                    0x08cb                  _TxSelRegInitResponse
+                    0x08ce                  _receiverGainRegResponse
+                    0x08d1                  _ComIrqRegInitResponse
+                    0x08d4                  _getStatusRegCmdResponse
+                    0x08d7                  _transciveWakeUpResponse
+                    0x08da                  _dummy_read
+                    0x08dc                  _read_fifo
+                    0x08de                  _getBytesInFifoCmd
+                    0x08e0                  _getModemStatusCmd
+                    0x08e2                  _getStatusRegCmd
+                    0x08e4                  _clearFifoBufferCmd
+                    0x08e6                  _write_fifo
+                    0x08e8                  _activate_receiver_cmd
+                    0x08ea                  _softResetCmd
+                    0x08ec                  _modRegInit
+                    0x08ee                  _RxModeRegInit
+                    0x08f0                  _RxSelRegInit
+                    0x08f2                  _clearCryptoBitCmd
+                    0x08f4                  _RxThresholdRegInit
+                    0x08f6                  _TxModeRegInit
+                    0x08f8                  _TxControlReg
+                    0x08fa                  _TxASKRegInit
+                    0x08fc                  _TxSelRegInit
+                    0x08fe                  _receiverGainReg
+                    0x0900                  _ComIrqRegInit
+                    0x0902                  _transciveWakeUp
 
 External Symbols in Data Memory (by name):
 
-                    0x08c0                  _ComIrqRegInit
-                    0x0894                  _ComIrqRegInitResponse
-                    0x08ae                  _RxModeRegInit
-                    0x0830                  _RxModeRegInitResponse
-                    0x08b0                  _RxSelRegInit
-                    0x0833                  _RxSelRegInitResponse
-                    0x08b4                  _RxThresholdRegInit
-                    0x0836                  _RxThresholdRegInitResponse
-                    0x08ba                  _TxASKRegInit
-                    0x088b                  _TxASKRegInitResponse
-                    0x08b8                  _TxControlReg
-                    0x0888                  _TxControlRegResponse
-                    0x08b6                  _TxModeRegInit
-                    0x0885                  _TxModeRegInitResponse
-                    0x08bc                  _TxSelRegInit
-                    0x088e                  _TxSelRegInitResponse
+                    0x0900                  _ComIrqRegInit
+                    0x08d1                  _ComIrqRegInitResponse
+                    0x08ee                  _RxModeRegInit
+                    0x086d                  _RxModeRegInitResponse
+                    0x08f0                  _RxSelRegInit
+                    0x0870                  _RxSelRegInitResponse
+                    0x08f4                  _RxThresholdRegInit
+                    0x0873                  _RxThresholdRegInitResponse
+                    0x08fa                  _TxASKRegInit
+                    0x08c8                  _TxASKRegInitResponse
+                    0x08f8                  _TxControlReg
+                    0x08c5                  _TxControlRegResponse
+                    0x08f6                  _TxModeRegInit
+                    0x08c2                  _TxModeRegInitResponse
+                    0x08fc                  _TxSelRegInit
+                    0x08cb                  _TxSelRegInitResponse
                     0x081a                  _UART1_RxDefaultInterruptHandler
                     0x0818                  _UART1_TxDefaultInterruptHandler
                     0x080c                  _UART2_RxDefaultInterruptHandler
                     0x080a                  _UART2_TxDefaultInterruptHandler
-                    0x08a8                  _activate_receiver_cmd
-                    0x0839                  _activate_receiver_response
-                    0x082a                  _bytesInFifoResponse
-                    0x08b2                  _clearCryptoBitCmd
-                    0x083f                  _clearCryptoBitCmd_response
-                    0x08a4                  _clearFifoBufferCmd
+                    0x08e8                  _activate_receiver_cmd
+                    0x0876                  _activate_receiver_response
+                    0x0867                  _bytesInFifoResponse
+                    0x08f2                  _clearCryptoBitCmd
+                    0x087c                  _clearCryptoBitCmd_response
+                    0x08e4                  _clearFifoBufferCmd
                     0x0822                  _dummyReadResponse
-                    0x089a                  _dummy_read
-                    0x0842                  _fifo
-                    0x089e                  _getBytesInFifoCmd
-                    0x08a0                  _getModemStatusCmd
-                    0x08a2                  _getStatusRegCmd
-                    0x0897                  _getStatusRegCmdResponse
-                    0x08ac                  _modRegInit
-                    0x082d                  _modRegInitResponse
-                    0x0882                  _modemStatusResponse
-                    0x089c                  _read_fifo
-                    0x0827                  _read_fifo_response
-                    0x08be                  _receiverGainReg
-                    0x0891                  _receiverGainRegResponse
-                    0x08aa                  _softResetCmd
-                    0x083c                  _softResetCmd_response
-                    0x08a6                  _write_fifo
+                    0x08da                  _dummy_read
+                    0x087f                  _fifo
+                    0x08de                  _getBytesInFifoCmd
+                    0x08e0                  _getModemStatusCmd
+                    0x08e2                  _getStatusRegCmd
+                    0x08d4                  _getStatusRegCmdResponse
+                    0x08ec                  _modRegInit
+                    0x086a                  _modRegInitResponse
+                    0x08bf                  _modemStatusResponse
+                    0x08dc                  _read_fifo
+                    0x0864                  _read_fifo_response
+                    0x08fe                  _receiverGainReg
+                    0x08ce                  _receiverGainRegResponse
+                    0x08ea                  _softResetCmd
+                    0x0879                  _softResetCmd_response
+                    0x0902                  _transciveWakeUp
+                    0x08d7                  _transciveWakeUpResponse
+                    0x08e6                  _write_fifo
                     0x0824                  _write_fifo_response
 
 External Symbols in Program Memory (by address):
 
                   0x000200                  __resetPRI
                   0x00023c                  __psv_init
-                  0x000252                  __data_init_da
                   0x000252                  __data_init
+                  0x000252                  __data_init_da
                   0x000354                  __RTCCInterrupt
                   0x000372                  __OscillatorFail
                   0x000392                  __StackError
@@ -235,144 +239,147 @@ External Symbols in Program Memory (by address):
                   0x0005e0                  __DefaultInterrupt
                   0x0005e4                  _write
                   0x000630                  _uart
-                  0x000650                  _UART2_Initialize
-                  0x000690                  _UART2_SetTxInterruptHandler
-                  0x0006ae                  _UART2_SetRxInterruptHandler
-                  0x0006cc                  _UART2_Read
-                  0x0006f8                  _UART2_Write
-                  0x000722                  _UART2_IsRxReady
-                  0x000738                  _UART2_IsTxReady
-                  0x000774                  _UART2_IsTxDone
-                  0x000812                  _UART2_ReadBuffer
-                  0x000860                  _UART2_WriteBuffer
-                  0x0008ae                  _UART2_TransferStatusGet
-                  0x0008fa                  _UART2_Peek
-                  0x00091e                  _UART2_ReceiveBufferIsEmpty
-                  0x00092e                  _UART2_TransmitBufferIsFull
-                  0x00093e                  _UART2_StatusGet
-                  0x000946                  _UART2_TransmitBufferSizeGet
-                  0x000974                  _UART2_ReceiveBufferSizeGet
-                  0x0009a2                  _UART2_Enable
-                  0x0009ac                  _UART2_Disable
-                  0x0009b6                  _UART1_Initialize
-                  0x0009f6                  _UART1_SetTxInterruptHandler
-                  0x000a14                  _UART1_SetRxInterruptHandler
-                  0x000a32                  _UART1_Read
-                  0x000a5e                  _UART1_Write
-                  0x000a88                  _UART1_IsRxReady
-                  0x000a9e                  _UART1_IsTxReady
-                  0x000ada                  _UART1_IsTxDone
-                  0x000b78                  _UART1_ReadBuffer
-                  0x000bc6                  _UART1_WriteBuffer
-                  0x000c14                  _UART1_TransferStatusGet
-                  0x000c60                  _UART1_Peek
-                  0x000c84                  _UART1_ReceiveBufferIsEmpty
-                  0x000c94                  _UART1_TransmitBufferIsFull
-                  0x000ca4                  _UART1_StatusGet
-                  0x000cac                  _UART1_TransmitBufferSizeGet
-                  0x000cda                  _UART1_ReceiveBufferSizeGet
-                  0x000d08                  _UART1_Enable
-                  0x000d12                  _UART1_Disable
-                  0x000d1c                  _RTCC_Initialize
-                  0x000d56                  _RTCC_TimeReset
-                  0x000d6c                  _RTCC_TimeGet
-                  0x000e12                  _RTCC_TimeSet
-                  0x000ea2                  _RTCC_BCDTimeGet
-                  0x000f30                  _RTCC_BCDTimeSet
-                  0x000ff0                  _getStatusReg
-                  0x001006                  _getModemStatus
-                  0x00101a                  _initialize_RC522
-                  0x0010c0                  _turnOnAntenna
-                  0x0010d2                  _getFifoSize
-                  0x0010e8                  _getFifoContent
-                  0x001152                  _writeByteToFifo
-                  0x00116e                  _clearFifoBuffer
-                  0x001180                  _toggleSlaveSelect
-                  0x00119c                  _SPI1_Initialize
-                  0x0011b8                  _SPI1_Exchange
-                  0x0011ec                  _SPI1_ExchangeBuffer
-                  0x0012fe                  _SPI1_Exchange8bit
-                  0x001310                  _SPI1_Exchange8bitBuffer
-                  0x00132c                  _SPI1_StatusGet
-                  0x001334                  _PIN_MANAGER_Initialize
-                  0x0013e6                  _INTERRUPT_Initialize
-                  0x0014a2                  _main
-                  0x0014fc                  _DELAY_milliseconds
-                  0x00151e                  _DELAY_microseconds
-                  0x001552                  _CLOCK_Initialize
-                  0x00158e                  _LED_Initialize
-                  0x001594                  _LED_On
-                  0x00159c                  _LED_Off
-                  0x0015a4                  _LED_Toggle
-                  0x0015c0                  _LED_IntensitySet
-                  0x0015d6                  _EXT_INT_Initialize
-                  0x0015e8                  ___delay32
-                  0x00161c                  _SYSTEM_Initialize
+                  0x00065a                  _UART2_Initialize
+                  0x00069a                  _UART2_SetTxInterruptHandler
+                  0x0006b8                  _UART2_SetRxInterruptHandler
+                  0x0006d6                  _UART2_Read
+                  0x000702                  _UART2_Write
+                  0x00072c                  _UART2_IsRxReady
+                  0x000742                  _UART2_IsTxReady
+                  0x00077e                  _UART2_IsTxDone
+                  0x00081c                  _UART2_ReadBuffer
+                  0x00086a                  _UART2_WriteBuffer
+                  0x0008b8                  _UART2_TransferStatusGet
+                  0x000904                  _UART2_Peek
+                  0x000928                  _UART2_ReceiveBufferIsEmpty
+                  0x000938                  _UART2_TransmitBufferIsFull
+                  0x000948                  _UART2_StatusGet
+                  0x000950                  _UART2_TransmitBufferSizeGet
+                  0x00097e                  _UART2_ReceiveBufferSizeGet
+                  0x0009ac                  _UART2_Enable
+                  0x0009b6                  _UART2_Disable
+                  0x0009c0                  _UART1_Initialize
+                  0x000a00                  _UART1_SetTxInterruptHandler
+                  0x000a1e                  _UART1_SetRxInterruptHandler
+                  0x000a3c                  _UART1_Read
+                  0x000a68                  _UART1_Write
+                  0x000a92                  _UART1_IsRxReady
+                  0x000aa8                  _UART1_IsTxReady
+                  0x000ae4                  _UART1_IsTxDone
+                  0x000b82                  _UART1_ReadBuffer
+                  0x000bd0                  _UART1_WriteBuffer
+                  0x000c1e                  _UART1_TransferStatusGet
+                  0x000c6a                  _UART1_Peek
+                  0x000c8e                  _UART1_ReceiveBufferIsEmpty
+                  0x000c9e                  _UART1_TransmitBufferIsFull
+                  0x000cae                  _UART1_StatusGet
+                  0x000cb6                  _UART1_TransmitBufferSizeGet
+                  0x000ce4                  _UART1_ReceiveBufferSizeGet
+                  0x000d12                  _UART1_Enable
+                  0x000d1c                  _UART1_Disable
+                  0x000d26                  _RTCC_Initialize
+                  0x000d60                  _RTCC_TimeReset
+                  0x000d76                  _RTCC_TimeGet
+                  0x000e1c                  _RTCC_TimeSet
+                  0x000eac                  _RTCC_BCDTimeGet
+                  0x000f3a                  _RTCC_BCDTimeSet
+                  0x000ffa                  _transceive
+                  0x00101a                  _getStatusReg
+                  0x001030                  _getModemStatus
+                  0x001044                  _initialize_RC522
+                  0x0010ea                  _turnOnAntenna
+                  0x0010fc                  _getFifoSize
+                  0x001112                  _Read_FIFO
+                  0x001158                  _Write_FIFO
+                  0x00119c                  _clearFifoBuffer
+                  0x0011ae                  _toggleSlaveSelect
+                  0x0011ca                  _SPI1_Initialize
+                  0x0011e6                  _SPI1_Exchange
+                  0x00121a                  _SPI1_ExchangeBuffer
+                  0x00132c                  _SPI1_Exchange8bit
+                  0x00133e                  _SPI1_Exchange8bitBuffer
+                  0x00135a                  _SPI1_StatusGet
+                  0x001362                  _PIN_MANAGER_Initialize
+                  0x001414                  _INTERRUPT_Initialize
+                  0x0014d0                  _main
+                  0x001528                  _DELAY_milliseconds
+                  0x00154a                  _DELAY_microseconds
+                  0x00157e                  _CLOCK_Initialize
+                  0x0015ba                  _LED_Initialize
+                  0x0015c0                  _LED_On
+                  0x0015c8                  _LED_Off
+                  0x0015d0                  _LED_Toggle
+                  0x0015ec                  _LED_IntensitySet
+                  0x001602                  _EXT_INT_Initialize
+                  0x001614                  ___delay32
+                  0x001648                  _SYSTEM_Initialize
 
 External Symbols in Program Memory (by name):
 
-                  0x001552                  _CLOCK_Initialize
-                  0x00151e                  _DELAY_microseconds
-                  0x0014fc                  _DELAY_milliseconds
-                  0x0015d6                  _EXT_INT_Initialize
-                  0x0013e6                  _INTERRUPT_Initialize
-                  0x00158e                  _LED_Initialize
-                  0x0015c0                  _LED_IntensitySet
-                  0x00159c                  _LED_Off
-                  0x001594                  _LED_On
-                  0x0015a4                  _LED_Toggle
-                  0x001334                  _PIN_MANAGER_Initialize
-                  0x000ea2                  _RTCC_BCDTimeGet
-                  0x000f30                  _RTCC_BCDTimeSet
-                  0x000d1c                  _RTCC_Initialize
-                  0x000d6c                  _RTCC_TimeGet
-                  0x000d56                  _RTCC_TimeReset
-                  0x000e12                  _RTCC_TimeSet
-                  0x0011b8                  _SPI1_Exchange
-                  0x0012fe                  _SPI1_Exchange8bit
-                  0x001310                  _SPI1_Exchange8bitBuffer
-                  0x0011ec                  _SPI1_ExchangeBuffer
-                  0x00119c                  _SPI1_Initialize
-                  0x00132c                  _SPI1_StatusGet
-                  0x00161c                  _SYSTEM_Initialize
-                  0x000d12                  _UART1_Disable
-                  0x000d08                  _UART1_Enable
-                  0x0009b6                  _UART1_Initialize
-                  0x000a88                  _UART1_IsRxReady
-                  0x000ada                  _UART1_IsTxDone
-                  0x000a9e                  _UART1_IsTxReady
-                  0x000c60                  _UART1_Peek
-                  0x000a32                  _UART1_Read
-                  0x000b78                  _UART1_ReadBuffer
-                  0x000c84                  _UART1_ReceiveBufferIsEmpty
-                  0x000cda                  _UART1_ReceiveBufferSizeGet
-                  0x000a14                  _UART1_SetRxInterruptHandler
-                  0x0009f6                  _UART1_SetTxInterruptHandler
-                  0x000ca4                  _UART1_StatusGet
-                  0x000c14                  _UART1_TransferStatusGet
-                  0x000c94                  _UART1_TransmitBufferIsFull
-                  0x000cac                  _UART1_TransmitBufferSizeGet
-                  0x000a5e                  _UART1_Write
-                  0x000bc6                  _UART1_WriteBuffer
-                  0x0009ac                  _UART2_Disable
-                  0x0009a2                  _UART2_Enable
-                  0x000650                  _UART2_Initialize
-                  0x000722                  _UART2_IsRxReady
-                  0x000774                  _UART2_IsTxDone
-                  0x000738                  _UART2_IsTxReady
-                  0x0008fa                  _UART2_Peek
-                  0x0006cc                  _UART2_Read
-                  0x000812                  _UART2_ReadBuffer
-                  0x00091e                  _UART2_ReceiveBufferIsEmpty
-                  0x000974                  _UART2_ReceiveBufferSizeGet
-                  0x0006ae                  _UART2_SetRxInterruptHandler
-                  0x000690                  _UART2_SetTxInterruptHandler
-                  0x00093e                  _UART2_StatusGet
-                  0x0008ae                  _UART2_TransferStatusGet
-                  0x00092e                  _UART2_TransmitBufferIsFull
-                  0x000946                  _UART2_TransmitBufferSizeGet
-                  0x0006f8                  _UART2_Write
-                  0x000860                  _UART2_WriteBuffer
+                  0x00157e                  _CLOCK_Initialize
+                  0x00154a                  _DELAY_microseconds
+                  0x001528                  _DELAY_milliseconds
+                  0x001602                  _EXT_INT_Initialize
+                  0x001414                  _INTERRUPT_Initialize
+                  0x0015ba                  _LED_Initialize
+                  0x0015ec                  _LED_IntensitySet
+                  0x0015c8                  _LED_Off
+                  0x0015c0                  _LED_On
+                  0x0015d0                  _LED_Toggle
+                  0x001362                  _PIN_MANAGER_Initialize
+                  0x000eac                  _RTCC_BCDTimeGet
+                  0x000f3a                  _RTCC_BCDTimeSet
+                  0x000d26                  _RTCC_Initialize
+                  0x000d76                  _RTCC_TimeGet
+                  0x000d60                  _RTCC_TimeReset
+                  0x000e1c                  _RTCC_TimeSet
+                  0x001112                  _Read_FIFO
+                  0x0011e6                  _SPI1_Exchange
+                  0x00132c                  _SPI1_Exchange8bit
+                  0x00133e                  _SPI1_Exchange8bitBuffer
+                  0x00121a                  _SPI1_ExchangeBuffer
+                  0x0011ca                  _SPI1_Initialize
+                  0x00135a                  _SPI1_StatusGet
+                  0x001648                  _SYSTEM_Initialize
+                  0x000d1c                  _UART1_Disable
+                  0x000d12                  _UART1_Enable
+                  0x0009c0                  _UART1_Initialize
+                  0x000a92                  _UART1_IsRxReady
+                  0x000ae4                  _UART1_IsTxDone
+                  0x000aa8                  _UART1_IsTxReady
+                  0x000c6a                  _UART1_Peek
+                  0x000a3c                  _UART1_Read
+                  0x000b82                  _UART1_ReadBuffer
+                  0x000c8e                  _UART1_ReceiveBufferIsEmpty
+                  0x000ce4                  _UART1_ReceiveBufferSizeGet
+                  0x000a1e                  _UART1_SetRxInterruptHandler
+                  0x000a00                  _UART1_SetTxInterruptHandler
+                  0x000cae                  _UART1_StatusGet
+                  0x000c1e                  _UART1_TransferStatusGet
+                  0x000c9e                  _UART1_TransmitBufferIsFull
+                  0x000cb6                  _UART1_TransmitBufferSizeGet
+                  0x000a68                  _UART1_Write
+                  0x000bd0                  _UART1_WriteBuffer
+                  0x0009b6                  _UART2_Disable
+                  0x0009ac                  _UART2_Enable
+                  0x00065a                  _UART2_Initialize
+                  0x00072c                  _UART2_IsRxReady
+                  0x00077e                  _UART2_IsTxDone
+                  0x000742                  _UART2_IsTxReady
+                  0x000904                  _UART2_Peek
+                  0x0006d6                  _UART2_Read
+                  0x00081c                  _UART2_ReadBuffer
+                  0x000928                  _UART2_ReceiveBufferIsEmpty
+                  0x00097e                  _UART2_ReceiveBufferSizeGet
+                  0x0006b8                  _UART2_SetRxInterruptHandler
+                  0x00069a                  _UART2_SetTxInterruptHandler
+                  0x000948                  _UART2_StatusGet
+                  0x0008b8                  _UART2_TransferStatusGet
+                  0x000938                  _UART2_TransmitBufferIsFull
+                  0x000950                  _UART2_TransmitBufferSizeGet
+                  0x000702                  _UART2_Write
+                  0x00086a                  _UART2_WriteBuffer
+                  0x001158                  _Write_FIFO
                   0x0003b4                  __AddressError
                   0x0005e0                  __DefaultInterrupt
                   0x0005a4                  __INT0Interrupt
@@ -387,23 +394,22 @@ External Symbols in Program Memory (by name):
                   0x0004b6                  __U2ErrInterrupt
                   0x000450                  __U2RXInterrupt
                   0x0003f4                  __U2TXInterrupt
-                  0x0015e8                  ___delay32
+                  0x001614                  ___delay32
                   0x000252                  __data_init
                   0x000252                  __data_init_da
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x00116e                  _clearFifoBuffer
-                  0x0010e8                  _getFifoContent
-                  0x0010d2                  _getFifoSize
-                  0x001006                  _getModemStatus
-                  0x000ff0                  _getStatusReg
-                  0x00101a                  _initialize_RC522
-                  0x0014a2                  _main
-                  0x001180                  _toggleSlaveSelect
-                  0x0010c0                  _turnOnAntenna
+                  0x00119c                  _clearFifoBuffer
+                  0x0010fc                  _getFifoSize
+                  0x001030                  _getModemStatus
+                  0x00101a                  _getStatusReg
+                  0x001044                  _initialize_RC522
+                  0x0014d0                  _main
+                  0x0011ae                  _toggleSlaveSelect
+                  0x000ffa                  _transceive
+                  0x0010ea                  _turnOnAntenna
                   0x000630                  _uart
                   0x0005e4                  _write
-                  0x001152                  _writeByteToFifo
 
 Memory Configuration
 
@@ -520,7 +526,7 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x7550
+.debug_info       0x000000       0x7643
  *(.debug_info)
  .debug_info      0x000000        0x285 build/default/production/mcc_generated_files/drivers/uart.o
  .debug_info      0x000285        0x91d build/default/production/mcc_generated_files/rtcc.o
@@ -533,13 +539,13 @@ __CONFIG1
  .debug_info      0x0042f6       0x1215 build/default/production/mcc_generated_files/uart1.o
  .debug_info      0x00550b        0x870 build/default/production/mcc_generated_files/spi1.o
  .debug_info      0x005d7b        0x1c4 build/default/production/mcc_generated_files/delay.o
- .debug_info      0x005f3f        0x1d5 build/default/production/main.o
- .debug_info      0x006114        0x964 build/default/production/RC522.o
- .debug_info      0x006a78        0x84b build/default/production/mcc_generated_files/ext_int.o
- .debug_info      0x0072c3        0x28d build/default/production/mcc_generated_files/led.o
+ .debug_info      0x005f3f        0x234 build/default/production/main.o
+ .debug_info      0x006173        0x9f8 build/default/production/RC522.o
+ .debug_info      0x006b6b        0x84b build/default/production/mcc_generated_files/ext_int.o
+ .debug_info      0x0073b6        0x28d build/default/production/mcc_generated_files/led.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0xeae
+.debug_abbrev     0x000000        0xf05
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0x9b build/default/production/mcc_generated_files/drivers/uart.o
  .debug_abbrev    0x00009b        0x18b build/default/production/mcc_generated_files/rtcc.o
@@ -553,12 +559,12 @@ __CONFIG1
  .debug_abbrev    0x0007df        0x20a build/default/production/mcc_generated_files/uart1.o
  .debug_abbrev    0x0009e9        0x147 build/default/production/mcc_generated_files/spi1.o
  .debug_abbrev    0x000b30         0x67 build/default/production/mcc_generated_files/delay.o
- .debug_abbrev    0x000b97         0x76 build/default/production/main.o
- .debug_abbrev    0x000c0d        0x145 build/default/production/RC522.o
- .debug_abbrev    0x000d52         0x8a build/default/production/mcc_generated_files/ext_int.o
- .debug_abbrev    0x000ddc         0xd2 build/default/production/mcc_generated_files/led.o
+ .debug_abbrev    0x000b97         0x9f build/default/production/main.o
+ .debug_abbrev    0x000c36        0x173 build/default/production/RC522.o
+ .debug_abbrev    0x000da9         0x8a build/default/production/mcc_generated_files/ext_int.o
+ .debug_abbrev    0x000e33         0xd2 build/default/production/mcc_generated_files/led.o
 
-.debug_line       0x000000       0x1347
+.debug_line       0x000000       0x1367
  *(.debug_line)
  .debug_line      0x000000         0x99 build/default/production/mcc_generated_files/drivers/uart.o
  .debug_line      0x000099        0x1e4 build/default/production/mcc_generated_files/rtcc.o
@@ -570,14 +576,14 @@ __CONFIG1
  .debug_line      0x000767        0x12e build/default/production/mcc_generated_files/interrupt_manager.o
  .debug_line      0x000895        0x211 build/default/production/mcc_generated_files/uart2.o
  .debug_line      0x000aa6        0x22d build/default/production/mcc_generated_files/uart1.o
- .debug_line      0x000cd3        0x16c build/default/production/mcc_generated_files/spi1.o
- .debug_line      0x000e3f         0xa6 build/default/production/mcc_generated_files/delay.o
- .debug_line      0x000ee5         0x96 build/default/production/main.o
- .debug_line      0x000f7b        0x167 build/default/production/RC522.o
- .debug_line      0x0010e2        0x142 build/default/production/mcc_generated_files/ext_int.o
- .debug_line      0x001224        0x123 build/default/production/mcc_generated_files/led.o
+ .debug_line      0x000cd3        0x16b build/default/production/mcc_generated_files/spi1.o
+ .debug_line      0x000e3e         0xa6 build/default/production/mcc_generated_files/delay.o
+ .debug_line      0x000ee4         0xa4 build/default/production/main.o
+ .debug_line      0x000f88        0x17a build/default/production/RC522.o
+ .debug_line      0x001102        0x142 build/default/production/mcc_generated_files/ext_int.o
+ .debug_line      0x001244        0x123 build/default/production/mcc_generated_files/led.o
 
-.debug_frame      0x000000        0xd1c
+.debug_frame      0x000000        0xd3e
  *(.debug_frame)
  .debug_frame     0x000000        0x15e build/default/production/mcc_generated_files/rtcc.o
  .debug_frame     0x00015e        0x140 build/default/production/mcc_generated_files/traps.o
@@ -590,11 +596,11 @@ __CONFIG1
  .debug_frame     0x000984         0xb0 build/default/production/mcc_generated_files/spi1.o
  .debug_frame     0x000a34         0x48 build/default/production/mcc_generated_files/delay.o
  .debug_frame     0x000a7c         0x2e build/default/production/main.o
- .debug_frame     0x000aaa         0xfe build/default/production/RC522.o
- .debug_frame     0x000ba8         0xde build/default/production/mcc_generated_files/ext_int.o
- .debug_frame     0x000c86         0x96 build/default/production/mcc_generated_files/led.o
+ .debug_frame     0x000aaa        0x120 build/default/production/RC522.o
+ .debug_frame     0x000bca         0xde build/default/production/mcc_generated_files/ext_int.o
+ .debug_frame     0x000ca8         0x96 build/default/production/mcc_generated_files/led.o
 
-.debug_str        0x000000        0x630
+.debug_str        0x000000        0x658
  *(.debug_str)
  .debug_str       0x000000         0x57 build/default/production/mcc_generated_files/rtcc.o
  .debug_str       0x000057          0xc build/default/production/mcc_generated_files/traps.o
@@ -605,9 +611,9 @@ __CONFIG1
  .debug_str       0x000123         0xac build/default/production/mcc_generated_files/uart2.o
  .debug_str       0x0001cf         0xb3 build/default/production/mcc_generated_files/uart1.o
  .debug_str       0x000282         0xa3 build/default/production/mcc_generated_files/spi1.o
- .debug_str       0x000325        0x2d2 build/default/production/RC522.o
- .debug_str       0x0005f7         0x30 build/default/production/mcc_generated_files/ext_int.o
- .debug_str       0x000627          0x9 build/default/production/mcc_generated_files/led.o
+ .debug_str       0x000325        0x2fa build/default/production/RC522.o
+ .debug_str       0x00061f         0x30 build/default/production/mcc_generated_files/ext_int.o
+ .debug_str       0x00064f          0x9 build/default/production/mcc_generated_files/led.o
 
 .debug_loc
  *(.debug_loc)
@@ -616,7 +622,7 @@ __CONFIG1
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0xce0
+                  0x000000        0xd15
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x1b build/default/production/mcc_generated_files/drivers/uart.o
@@ -643,11 +649,11 @@ __CONFIG1
  .debug_pubnames
                   0x0007c0         0x1b build/default/production/main.o
  .debug_pubnames
-                  0x0007db        0x42c build/default/production/RC522.o
+                  0x0007db        0x461 build/default/production/RC522.o
  .debug_pubnames
-                  0x000c07         0x79 build/default/production/mcc_generated_files/ext_int.o
+                  0x000c3c         0x79 build/default/production/mcc_generated_files/ext_int.o
  .debug_pubnames
-                  0x000c80         0x60 build/default/production/mcc_generated_files/led.o
+                  0x000cb5         0x60 build/default/production/mcc_generated_files/led.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -1951,7 +1957,7 @@ LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
-                  0x000158        0x756
+                  0x000158        0x775
  .debug_pubtypes
                   0x000158         0x33 build/default/production/mcc_generated_files/drivers/uart.o
  .debug_pubtypes
@@ -1975,54 +1981,54 @@ LOAD data_init
  .debug_pubtypes
                   0x000737         0x1f build/default/production/mcc_generated_files/delay.o
  .debug_pubtypes
-                  0x000756         0x1e build/default/production/main.o
+                  0x000756         0x34 build/default/production/main.o
  .debug_pubtypes
-                  0x000774         0x48 build/default/production/RC522.o
+                  0x00078a         0x51 build/default/production/RC522.o
  .debug_pubtypes
-                  0x0007bc         0xb6 build/default/production/mcc_generated_files/ext_int.o
+                  0x0007db         0xb6 build/default/production/mcc_generated_files/ext_int.o
  .debug_pubtypes
-                  0x000872         0x3c build/default/production/mcc_generated_files/led.o
+                  0x000891         0x3c build/default/production/mcc_generated_files/led.o
 
 __c30_signature
-                  0x0008ae         0x72
+                  0x0008cd         0x72
  __c30_signature
-                  0x0008ae          0x6 build/default/production/mcc_generated_files/drivers/uart.o
+                  0x0008cd          0x6 build/default/production/mcc_generated_files/drivers/uart.o
  __c30_signature
-                  0x0008b4          0x6 build/default/production/mcc_generated_files/rtcc.o
+                  0x0008d3          0x6 build/default/production/mcc_generated_files/rtcc.o
  __c30_signature
-                  0x0008ba          0x6 build/default/production/mcc_generated_files/traps.o
+                  0x0008d9          0x6 build/default/production/mcc_generated_files/traps.o
  __c30_signature
-                  0x0008c0          0x6 build/default/production/mcc_generated_files/pin_manager.o
+                  0x0008df          0x6 build/default/production/mcc_generated_files/pin_manager.o
  __c30_signature
-                  0x0008c6          0x6 build/default/production/mcc_generated_files/system.o
+                  0x0008e5          0x6 build/default/production/mcc_generated_files/system.o
  __c30_signature
-                  0x0008cc          0x6 build/default/production/mcc_generated_files/clock.o
+                  0x0008eb          0x6 build/default/production/mcc_generated_files/clock.o
  __c30_signature
-                  0x0008d2          0x6 build/default/production/mcc_generated_files/mcc.o
+                  0x0008f1          0x6 build/default/production/mcc_generated_files/mcc.o
  __c30_signature
-                  0x0008d8          0x6 build/default/production/mcc_generated_files/interrupt_manager.o
+                  0x0008f7          0x6 build/default/production/mcc_generated_files/interrupt_manager.o
  __c30_signature
-                  0x0008de          0x6 build/default/production/mcc_generated_files/uart2.o
+                  0x0008fd          0x6 build/default/production/mcc_generated_files/uart2.o
  __c30_signature
-                  0x0008e4          0x6 build/default/production/mcc_generated_files/uart1.o
+                  0x000903          0x6 build/default/production/mcc_generated_files/uart1.o
  __c30_signature
-                  0x0008ea          0x6 build/default/production/mcc_generated_files/spi1.o
+                  0x000909          0x6 build/default/production/mcc_generated_files/spi1.o
  __c30_signature
-                  0x0008f0          0x6 build/default/production/mcc_generated_files/delay.o
+                  0x00090f          0x6 build/default/production/mcc_generated_files/delay.o
  __c30_signature
-                  0x0008f6          0x6 build/default/production/main.o
+                  0x000915          0x6 build/default/production/main.o
  __c30_signature
-                  0x0008fc          0x6 build/default/production/RC522.o
+                  0x00091b          0x6 build/default/production/RC522.o
  __c30_signature
-                  0x000902          0x6 build/default/production/mcc_generated_files/ext_int.o
+                  0x000921          0x6 build/default/production/mcc_generated_files/ext_int.o
  __c30_signature
-                  0x000908          0x6 build/default/production/mcc_generated_files/led.o
+                  0x000927          0x6 build/default/production/mcc_generated_files/led.o
  __c30_signature
-                  0x00090e          0x6 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(crt0_extended24.o)
+                  0x00092d          0x6 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(crt0_extended24.o)
  __c30_signature
-                  0x000914          0x6 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(data_init_24.o)
+                  0x000933          0x6 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(data_init_24.o)
  __c30_signature
-                  0x00091a          0x6 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(delay32da.Meo)
+                  0x000939          0x6 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(delay32da.Meo)
 
 .nbss               0x0800         0x1e
  .nbss              0x0800          0xe build/default/production/mcc_generated_files/uart2.o
@@ -2039,56 +2045,58 @@ __c30_signature
 .nbss               0x0820          0x2
  .nbss              0x0820          0x2 build/default/production/mcc_generated_files/led.o
 
-.bss                0x0822         0x78
- .bss               0x0822         0x78 build/default/production/RC522.o
+.bss                0x0822         0xb8
+ .bss               0x0822         0xb8 build/default/production/RC522.o
                     0x0822                  _dummyReadResponse
                     0x0824                  _write_fifo_response
-                    0x0827                  _read_fifo_response
-                    0x082a                  _bytesInFifoResponse
-                    0x082d                  _modRegInitResponse
-                    0x0830                  _RxModeRegInitResponse
-                    0x0833                  _RxSelRegInitResponse
-                    0x0836                  _RxThresholdRegInitResponse
-                    0x0839                  _activate_receiver_response
-                    0x083c                  _softResetCmd_response
-                    0x083f                  _clearCryptoBitCmd_response
-                    0x0842                  _fifo
-                    0x0882                  _modemStatusResponse
-                    0x0885                  _TxModeRegInitResponse
-                    0x0888                  _TxControlRegResponse
-                    0x088b                  _TxASKRegInitResponse
-                    0x088e                  _TxSelRegInitResponse
-                    0x0891                  _receiverGainRegResponse
-                    0x0894                  _ComIrqRegInitResponse
-                    0x0897                  _getStatusRegCmdResponse
+                    0x0864                  _read_fifo_response
+                    0x0867                  _bytesInFifoResponse
+                    0x086a                  _modRegInitResponse
+                    0x086d                  _RxModeRegInitResponse
+                    0x0870                  _RxSelRegInitResponse
+                    0x0873                  _RxThresholdRegInitResponse
+                    0x0876                  _activate_receiver_response
+                    0x0879                  _softResetCmd_response
+                    0x087c                  _clearCryptoBitCmd_response
+                    0x087f                  _fifo
+                    0x08bf                  _modemStatusResponse
+                    0x08c2                  _TxModeRegInitResponse
+                    0x08c5                  _TxControlRegResponse
+                    0x08c8                  _TxASKRegInitResponse
+                    0x08cb                  _TxSelRegInitResponse
+                    0x08ce                  _receiverGainRegResponse
+                    0x08d1                  _ComIrqRegInitResponse
+                    0x08d4                  _getStatusRegCmdResponse
+                    0x08d7                  _transciveWakeUpResponse
 
-.data               0x089a         0x28
- .data              0x089a         0x28 build/default/production/RC522.o
-                    0x089a                  _dummy_read
-                    0x089c                  _read_fifo
-                    0x089e                  _getBytesInFifoCmd
-                    0x08a0                  _getModemStatusCmd
-                    0x08a2                  _getStatusRegCmd
-                    0x08a4                  _clearFifoBufferCmd
-                    0x08a6                  _write_fifo
-                    0x08a8                  _activate_receiver_cmd
-                    0x08aa                  _softResetCmd
-                    0x08ac                  _modRegInit
-                    0x08ae                  _RxModeRegInit
-                    0x08b0                  _RxSelRegInit
-                    0x08b2                  _clearCryptoBitCmd
-                    0x08b4                  _RxThresholdRegInit
-                    0x08b6                  _TxModeRegInit
-                    0x08b8                  _TxControlReg
-                    0x08ba                  _TxASKRegInit
-                    0x08bc                  _TxSelRegInit
-                    0x08be                  _receiverGainReg
-                    0x08c0                  _ComIrqRegInit
+.data               0x08da         0x2a
+ .data              0x08da         0x2a build/default/production/RC522.o
+                    0x08da                  _dummy_read
+                    0x08dc                  _read_fifo
+                    0x08de                  _getBytesInFifoCmd
+                    0x08e0                  _getModemStatusCmd
+                    0x08e2                  _getStatusRegCmd
+                    0x08e4                  _clearFifoBufferCmd
+                    0x08e6                  _write_fifo
+                    0x08e8                  _activate_receiver_cmd
+                    0x08ea                  _softResetCmd
+                    0x08ec                  _modRegInit
+                    0x08ee                  _RxModeRegInit
+                    0x08f0                  _RxSelRegInit
+                    0x08f2                  _clearCryptoBitCmd
+                    0x08f4                  _RxThresholdRegInit
+                    0x08f6                  _TxModeRegInit
+                    0x08f8                  _TxControlReg
+                    0x08fa                  _TxASKRegInit
+                    0x08fc                  _TxSelRegInit
+                    0x08fe                  _receiverGainReg
+                    0x0900                  _ComIrqRegInit
+                    0x0902                  _transciveWakeUp
 
-.bss                0x08c2         0x44
- .bss               0x08c2         0x20 build/default/production/mcc_generated_files/traps.o
- .bss               0x08e2         0x12 build/default/production/mcc_generated_files/uart2.o
- .bss               0x08f4         0x12 build/default/production/mcc_generated_files/uart1.o
+.bss                0x0904         0x44
+ .bss               0x0904         0x20 build/default/production/mcc_generated_files/traps.o
+ .bss               0x0924         0x12 build/default/production/mcc_generated_files/uart2.o
+ .bss               0x0936         0x12 build/default/production/mcc_generated_files/uart1.o
 
 .ivt._RTCCInterrupt
                   0x000090          0x2
@@ -2170,113 +2178,116 @@ __c30_signature
  .ivt._INT1Interrupt
                   0x00003c          0x2 build/default/production/mcc_generated_files/ext_int.o
 
-.const              0x8630         0x20 load address 0x000630  
+.const              0x8630         0x2a load address 0x000630  
  .const             0x8630         0x20 build/default/production/mcc_generated_files/drivers/uart.o
                     0x8630                  _uart
+ .const             0x8650          0x6 build/default/production/main.o
+ .const             0x8656          0x4 build/default/production/RC522.o
 
-.text             0x000650        0xdf6
- .text            0x000650        0x366 build/default/production/mcc_generated_files/uart2.o
-                  0x000650                  _UART2_Initialize
-                  0x000690                  _UART2_SetTxInterruptHandler
-                  0x0006a8                  _UART2_Transmit_CallBack
-                  0x0006ae                  _UART2_SetRxInterruptHandler
-                  0x0006c6                  _UART2_Receive_CallBack
-                  0x0006cc                  _UART2_Read
-                  0x0006f8                  _UART2_Write
-                  0x000722                  _UART2_IsRxReady
-                  0x000738                  _UART2_IsTxReady
-                  0x000774                  _UART2_IsTxDone
-                  0x000812                  _UART2_ReadBuffer
-                  0x000860                  _UART2_WriteBuffer
-                  0x0008ae                  _UART2_TransferStatusGet
-                  0x0008fa                  _UART2_Peek
-                  0x00091e                  _UART2_ReceiveBufferIsEmpty
-                  0x00092e                  _UART2_TransmitBufferIsFull
-                  0x00093e                  _UART2_StatusGet
-                  0x000946                  _UART2_TransmitBufferSizeGet
-                  0x000974                  _UART2_ReceiveBufferSizeGet
-                  0x0009a2                  _UART2_Enable
-                  0x0009ac                  _UART2_Disable
- .text            0x0009b6        0x366 build/default/production/mcc_generated_files/uart1.o
-                  0x0009b6                  _UART1_Initialize
-                  0x0009f6                  _UART1_SetTxInterruptHandler
-                  0x000a0e                  _UART1_Transmit_CallBack
-                  0x000a14                  _UART1_SetRxInterruptHandler
-                  0x000a2c                  _UART1_Receive_CallBack
-                  0x000a32                  _UART1_Read
-                  0x000a5e                  _UART1_Write
-                  0x000a88                  _UART1_IsRxReady
-                  0x000a9e                  _UART1_IsTxReady
-                  0x000ada                  _UART1_IsTxDone
-                  0x000b78                  _UART1_ReadBuffer
-                  0x000bc6                  _UART1_WriteBuffer
-                  0x000c14                  _UART1_TransferStatusGet
-                  0x000c60                  _UART1_Peek
-                  0x000c84                  _UART1_ReceiveBufferIsEmpty
-                  0x000c94                  _UART1_TransmitBufferIsFull
-                  0x000ca4                  _UART1_StatusGet
-                  0x000cac                  _UART1_TransmitBufferSizeGet
-                  0x000cda                  _UART1_ReceiveBufferSizeGet
-                  0x000d08                  _UART1_Enable
-                  0x000d12                  _UART1_Disable
- .text            0x000d1c        0x2d4 build/default/production/mcc_generated_files/rtcc.o
-                  0x000d1c                  _RTCC_Initialize
-                  0x000d56                  _RTCC_TimeReset
-                  0x000d6c                  _RTCC_TimeGet
-                  0x000e12                  _RTCC_TimeSet
-                  0x000ea2                  _RTCC_BCDTimeGet
-                  0x000f30                  _RTCC_BCDTimeSet
-                  0x000fea                  _RTCC_CallBack
- .text            0x000ff0        0x1ac build/default/production/RC522.o
-                  0x000ff0                  _getStatusReg
-                  0x001006                  _getModemStatus
-                  0x00101a                  _initialize_RC522
-                  0x0010c0                  _turnOnAntenna
-                  0x0010d2                  _getFifoSize
-                  0x0010e8                  _getFifoContent
-                  0x001152                  _writeByteToFifo
-                  0x00116e                  _clearFifoBuffer
-                  0x001180                  _toggleSlaveSelect
- .text            0x00119c        0x198 build/default/production/mcc_generated_files/spi1.o
-                  0x00119c                  _SPI1_Initialize
-                  0x0011b8                  _SPI1_Exchange
-                  0x0011ec                  _SPI1_ExchangeBuffer
-                  0x0012fe                  _SPI1_Exchange8bit
-                  0x001310                  _SPI1_Exchange8bitBuffer
-                  0x00132c                  _SPI1_StatusGet
- .text            0x001334         0xb2 build/default/production/mcc_generated_files/pin_manager.o
-                  0x001334                  _PIN_MANAGER_Initialize
- .text            0x0013e6         0x60 build/default/production/mcc_generated_files/interrupt_manager.o
-                  0x0013e6                  _INTERRUPT_Initialize
+.text             0x00065a        0xe1a
+ .text            0x00065a        0x366 build/default/production/mcc_generated_files/uart2.o
+                  0x00065a                  _UART2_Initialize
+                  0x00069a                  _UART2_SetTxInterruptHandler
+                  0x0006b2                  _UART2_Transmit_CallBack
+                  0x0006b8                  _UART2_SetRxInterruptHandler
+                  0x0006d0                  _UART2_Receive_CallBack
+                  0x0006d6                  _UART2_Read
+                  0x000702                  _UART2_Write
+                  0x00072c                  _UART2_IsRxReady
+                  0x000742                  _UART2_IsTxReady
+                  0x00077e                  _UART2_IsTxDone
+                  0x00081c                  _UART2_ReadBuffer
+                  0x00086a                  _UART2_WriteBuffer
+                  0x0008b8                  _UART2_TransferStatusGet
+                  0x000904                  _UART2_Peek
+                  0x000928                  _UART2_ReceiveBufferIsEmpty
+                  0x000938                  _UART2_TransmitBufferIsFull
+                  0x000948                  _UART2_StatusGet
+                  0x000950                  _UART2_TransmitBufferSizeGet
+                  0x00097e                  _UART2_ReceiveBufferSizeGet
+                  0x0009ac                  _UART2_Enable
+                  0x0009b6                  _UART2_Disable
+ .text            0x0009c0        0x366 build/default/production/mcc_generated_files/uart1.o
+                  0x0009c0                  _UART1_Initialize
+                  0x000a00                  _UART1_SetTxInterruptHandler
+                  0x000a18                  _UART1_Transmit_CallBack
+                  0x000a1e                  _UART1_SetRxInterruptHandler
+                  0x000a36                  _UART1_Receive_CallBack
+                  0x000a3c                  _UART1_Read
+                  0x000a68                  _UART1_Write
+                  0x000a92                  _UART1_IsRxReady
+                  0x000aa8                  _UART1_IsTxReady
+                  0x000ae4                  _UART1_IsTxDone
+                  0x000b82                  _UART1_ReadBuffer
+                  0x000bd0                  _UART1_WriteBuffer
+                  0x000c1e                  _UART1_TransferStatusGet
+                  0x000c6a                  _UART1_Peek
+                  0x000c8e                  _UART1_ReceiveBufferIsEmpty
+                  0x000c9e                  _UART1_TransmitBufferIsFull
+                  0x000cae                  _UART1_StatusGet
+                  0x000cb6                  _UART1_TransmitBufferSizeGet
+                  0x000ce4                  _UART1_ReceiveBufferSizeGet
+                  0x000d12                  _UART1_Enable
+                  0x000d1c                  _UART1_Disable
+ .text            0x000d26        0x2d4 build/default/production/mcc_generated_files/rtcc.o
+                  0x000d26                  _RTCC_Initialize
+                  0x000d60                  _RTCC_TimeReset
+                  0x000d76                  _RTCC_TimeGet
+                  0x000e1c                  _RTCC_TimeSet
+                  0x000eac                  _RTCC_BCDTimeGet
+                  0x000f3a                  _RTCC_BCDTimeSet
+                  0x000ff4                  _RTCC_CallBack
+ .text            0x000ffa        0x1d0 build/default/production/RC522.o
+                  0x000ffa                  _transceive
+                  0x00101a                  _getStatusReg
+                  0x001030                  _getModemStatus
+                  0x001044                  _initialize_RC522
+                  0x0010ea                  _turnOnAntenna
+                  0x0010fc                  _getFifoSize
+                  0x001112                  _Read_FIFO
+                  0x001158                  _Write_FIFO
+                  0x00119c                  _clearFifoBuffer
+                  0x0011ae                  _toggleSlaveSelect
+ .text            0x0011ca        0x198 build/default/production/mcc_generated_files/spi1.o
+                  0x0011ca                  _SPI1_Initialize
+                  0x0011e6                  _SPI1_Exchange
+                  0x00121a                  _SPI1_ExchangeBuffer
+                  0x00132c                  _SPI1_Exchange8bit
+                  0x00133e                  _SPI1_Exchange8bitBuffer
+                  0x00135a                  _SPI1_StatusGet
+ .text            0x001362         0xb2 build/default/production/mcc_generated_files/pin_manager.o
+                  0x001362                  _PIN_MANAGER_Initialize
+ .text            0x001414         0x60 build/default/production/mcc_generated_files/interrupt_manager.o
+                  0x001414                  _INTERRUPT_Initialize
 
-.dinit            0x001446         0x5c
- .dinit           0x001446         0x5c data_init
+.dinit            0x001474         0x5c
+ .dinit           0x001474         0x5c data_init
 
-.text             0x0014a2        0x146
- .text            0x0014a2         0x5a build/default/production/main.o
-                  0x0014a2                  _main
- .text            0x0014fc         0x56 build/default/production/mcc_generated_files/delay.o
-                  0x0014fc                  _DELAY_milliseconds
-                  0x00151e                  _DELAY_microseconds
- .text            0x001552         0x3c build/default/production/mcc_generated_files/clock.o
-                  0x001552                  _CLOCK_Initialize
- .text            0x00158e         0x3a build/default/production/mcc_generated_files/led.o
-                  0x00158e                  _LED_Initialize
-                  0x001594                  _LED_On
-                  0x00159c                  _LED_Off
-                  0x0015a4                  _LED_Toggle
-                  0x0015c0                  _LED_IntensitySet
- .text            0x0015c8         0x20 build/default/production/mcc_generated_files/ext_int.o
-                  0x0015c8                  _EX_INT0_CallBack
-                  0x0015d0                  _EX_INT1_CallBack
-                  0x0015d6                  _EXT_INT_Initialize
+.text             0x0014d0        0x144
+ .text            0x0014d0         0x58 build/default/production/main.o
+                  0x0014d0                  _main
+ .text            0x001528         0x56 build/default/production/mcc_generated_files/delay.o
+                  0x001528                  _DELAY_milliseconds
+                  0x00154a                  _DELAY_microseconds
+ .text            0x00157e         0x3c build/default/production/mcc_generated_files/clock.o
+                  0x00157e                  _CLOCK_Initialize
+ .text            0x0015ba         0x3a build/default/production/mcc_generated_files/led.o
+                  0x0015ba                  _LED_Initialize
+                  0x0015c0                  _LED_On
+                  0x0015c8                  _LED_Off
+                  0x0015d0                  _LED_Toggle
+                  0x0015ec                  _LED_IntensitySet
+ .text            0x0015f4         0x20 build/default/production/mcc_generated_files/ext_int.o
+                  0x0015f4                  _EX_INT0_CallBack
+                  0x0015fa                  _EX_INT1_CallBack
+                  0x001602                  _EXT_INT_Initialize
 
-.init.delay32     0x0015e8         0x1c
- .init.delay32    0x0015e8         0x1c c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(delay32da.Meo)
-                  0x0015e8                  ___delay32
+.init.delay32     0x001614         0x1c
+ .init.delay32    0x001614         0x1c c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(delay32da.Meo)
+                  0x001614                  ___delay32
 
-.text             0x001604         0x2e
- .text            0x001604         0x18 build/default/production/mcc_generated_files/traps.o
-                  0x001604                  _TRAPS_halt_on_error
- .text            0x00161c         0x16 build/default/production/mcc_generated_files/system.o
-                  0x00161c                  _SYSTEM_Initialize
+.text             0x001630         0x2e
+ .text            0x001630         0x18 build/default/production/mcc_generated_files/traps.o
+                  0x001630                  _TRAPS_halt_on_error
+ .text            0x001648         0x16 build/default/production/mcc_generated_files/system.o
+                  0x001648                  _SYSTEM_Initialize

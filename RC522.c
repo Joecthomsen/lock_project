@@ -9,6 +9,7 @@
 #include "RC522.h"
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include "mcc_generated_files/delay.h"
+#include <string.h>
 
 //Read Commands
 uint8_t dummy_read[] = {10000000, 0x00};
@@ -23,21 +24,22 @@ uint8_t write_fifo[2] = {0b00010010}; //This command needs a data parameter.
 uint8_t activate_receiver_cmd[] = {0b00000010, 0b00001000};
 uint8_t softResetCmd[] = {0b00000010, 0b00001111};
 uint8_t modRegInit[] = {0b00100010, 0b1000000};
-uint8_t RxModeRegInit[] = {0b00011010, 0b10010000};
+uint8_t RxModeRegInit[] = {0b00011010, 0b10000000};
 uint8_t RxSelRegInit[] = {0b00101110, 0b01111111};
 uint8_t clearCryptoBitCmd[] = {0b00010000, 0b00000000};
 uint8_t RxThresholdRegInit[] = {0b00110000, 0b00000000};
-uint8_t TxModeRegInit[] = {0b00100100, 0b10010000};
+uint8_t TxModeRegInit[] = {0b00100100, 0b10000000};
 uint8_t TxControlReg[] = {0b00101000, 0b11111011};
 uint8_t TxASKRegInit[] = {0b00101010, 0b01000000};
 uint8_t TxSelRegInit[] = {0b00101100, 0b00000010};
 uint8_t receiverGainReg[] = {0b01001100, 0b01110000};
-uint8_t ComIrqRegInit[] = {0b00001000, 10100000}; //Interrupt control register
+uint8_t ComIrqRegInit[] = {0b00001000, 0b10100000}; //Interrupt control register
+uint8_t transciveWakeUp[] = {0b00000010, 0b00001100};
 
 
 //Buffers
 uint8_t dummyReadResponse[2];
-uint8_t write_fifo_response[3];
+uint8_t write_fifo_response[64];
 uint8_t read_fifo_response[3];
 uint8_t bytesInFifoResponse[3];  
 uint8_t modRegInitResponse[3];
@@ -56,6 +58,18 @@ uint8_t TxSelRegInitResponse[3];
 uint8_t receiverGainRegResponse[3];
 uint8_t ComIrqRegInitResponse[3];
 uint8_t getStatusRegCmdResponse[3];
+uint8_t transciveWakeUpResponse[3];
+
+void transceive(){
+    //uint8_t wakeupMifareCmd[] = {0x52};
+    //writeBytesToFifo(wakeupMifareCmd);
+    uint8_t testWrite[] = {0x30, 0x00, 0x23, 0x31};   
+    Write_FIFO(testWrite, sizeof(testWrite));
+    toggleSlaveSelect();
+        SPI1_Exchange8bitBuffer(transciveWakeUp, 2, transciveWakeUpResponse);
+    toggleSlaveSelect();
+    return;
+}
 
 uint8_t getStatusReg(){
     toggleSlaveSelect();
@@ -186,7 +200,25 @@ uint8_t getFifoSize(){
  *  The FIFO will be empty after this call. 
  *  Read the size of the FIFO before this call. 
  */
-void getFifoContent(uint8_t * receive_buffer){    
+
+struct FIFO Read_FIFO(){ 
+    struct FIFO fifo;
+    memset(fifo.content, '\0', 64);
+    fifo.size = getFifoSize();    
+    for(int i = 0 ; i < fifo.size ; i++){
+        toggleSlaveSelect();
+            SPI1_Exchange8bitBuffer(read_fifo, 2, read_fifo_response);
+            fifo.content[i] = read_fifo_response[1];
+        toggleSlaveSelect();
+    }
+     
+    return fifo;
+}
+
+
+/*
+
+void Read_FIFO(uint8_t * receive_buffer){    
     uint8_t fifo_size = getFifoSize();    
     for(int i = 0 ; i < fifo_size ; i++){
         toggleSlaveSelect();
@@ -199,13 +231,17 @@ void getFifoContent(uint8_t * receive_buffer){
     }   
     return;
 }
+ * 
+ */
 
-
-void writeByteToFifo(uint8_t * byte_to_write){
+void Write_FIFO(uint8_t * buffer_to_write, uint16_t number_of_bytes){
         ///Write one byte with value 0x27 to FIFO 
-    write_fifo[1] = *byte_to_write;    
+    for(int i = 0 ; i < number_of_bytes ; i++){
+        write_fifo[1+i] = buffer_to_write[i];  
+    }
+  
     toggleSlaveSelect();
-        SPI1_Exchange8bitBuffer(write_fifo, 2, write_fifo_response);
+        SPI1_Exchange8bitBuffer(write_fifo, number_of_bytes + 1, write_fifo_response);
     toggleSlaveSelect();
     return;
 }

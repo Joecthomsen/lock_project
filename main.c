@@ -62,34 +62,36 @@ int main(void)
     LED_Initialize();
     initialize_RC522();
     
-    uint8_t a[] = {0b10000010, 0b00001000};
-    uint8_t b[3];
-    uint8_t c[3];
+    clearFifoBuffer();
+    struct FIFO fifo;
     
-    toggleSlaveSelect();
-        SPI1_Exchange8bitBuffer(a, 2, b);
-    toggleSlaveSelect();
+    uint8_t ab[] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x50, 0x51, 0x52};
     
-    //LED_Toggle();
+    Write_FIFO(ab, sizeof(ab));
+    fifo = Read_FIFO();
+    //mifareReadBlock();
     
-    int y = 6;
-    turnOnAntenna();
+    //uint8_t getFifoSize();
+    //void getFifoContent(uint8_t * receving_buffer);
+    
 
-    toggleSlaveSelect();
-        SPI1_Exchange8bitBuffer(a, 2, c);
-    toggleSlaveSelect();
-     
-    int u = 9;
+   // transceive();
+    uint8_t buf[64];
+   // Read_FIFO(buf);
+    
+    int km = 7;
     while (1)
     {
-        uint8_t a = getFifoSize();
-        if(a > 0){
+        uint8_t fifoSize = getFifoSize();
+        if(fifoSize != 4){
+            int k = 9;
             LED_On();
         }
-        turnOnAntenna();
-        DELAY_milliseconds(10);
-        uint8_t statusReg = getStatusReg();
-        int k = 7;
+
+        if(fifoSize > 1){
+            int k = 56;
+        }        
+        //int k = 7;
     }
 
     return 1;

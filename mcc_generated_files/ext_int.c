@@ -12,7 +12,6 @@
  
  void __attribute__ ((weak)) EX_INT0_CallBack(void)
 {
-    LED_On();
     return;
 }
 
@@ -30,6 +29,8 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _INT0Interrupt(void)
 }
  void __attribute__ ((weak)) EX_INT1_CallBack(void)
 {
+    LED_On();
+    return;
     // Add your custom callback code here
 }
 
